@@ -333,16 +333,39 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.2}
 .display-toggle:hover{background:rgba(201,168,76,.25);border-color:var(--gold)}
 
 .display-exit{
-  display:none;position:fixed;top:1rem;right:1rem;z-index:99999;
-  background:#fff !important;
-  border:2px solid #c9a84c !important;
-  color:#000 !important;
-  font-family:-apple-system,sans-serif;font-size:1rem;font-weight:700;
-  padding:.8rem 1.6rem;border-radius:10px;
+  display:none;position:fixed;top:1.5rem;right:1.5rem;z-index:99999;
+  width:44px;height:44px;
+  background:rgba(13,10,7,.6);
+  border:1px solid rgba(201,168,76,.35);
+  border-radius:50%;
   cursor:pointer;
-  box-shadow:0 4px 20px rgba(0,0,0,.6);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  box-shadow:0 4px 24px rgba(0,0,0,.4),inset 0 1px 0 rgba(201,168,76,.1);
+  transition:all .4s cubic-bezier(.25,.8,.25,1);
+  overflow:hidden;
 }
-html.display-mode .display-exit{display:block !important}
+.display-exit::before,.display-exit::after{
+  content:'';position:absolute;top:50%;left:50%;
+  width:18px;height:1.5px;
+  background:linear-gradient(90deg,rgba(201,168,76,.6),var(--gold));
+  border-radius:1px;
+  transition:all .3s ease;
+}
+.display-exit::before{transform:translate(-50%,-50%) rotate(45deg)}
+.display-exit::after{transform:translate(-50%,-50%) rotate(-45deg)}
+.display-exit:hover,.display-exit:active{
+  background:rgba(201,168,76,.15);
+  border-color:var(--gold);
+  box-shadow:0 4px 24px rgba(0,0,0,.4),0 0 20px rgba(201,168,76,.15),inset 0 1px 0 rgba(201,168,76,.2);
+  transform:scale(1.1);
+}
+.display-exit:hover::before,.display-exit:hover::after,
+.display-exit:active::before,.display-exit:active::after{
+  background:var(--gold);
+  width:20px;
+}
+@keyframes exitFadeIn{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+html.display-mode .display-exit{display:flex !important;align-items:center;justify-content:center;animation:exitFadeIn .6s cubic-bezier(.25,.8,.25,1) .5s both}
 
 /* ════════════════════════════════════════════════════
    RESPONSIVE
@@ -686,7 +709,7 @@ html.display-mode .display-exit{display:block !important}
 
 </div><!-- end .main-site -->
 
-<button class="display-exit" id="display-exit">Exit Display</button>
+<button class="display-exit" id="display-exit" aria-label="Exit display mode"></button>
 
 <!-- Firebase Realtime Database (free Spark plan) -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
