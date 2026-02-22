@@ -217,7 +217,6 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.2}
   position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
   object-position:center center;background:var(--dark);
   opacity:0;transition:opacity 2s ease-in-out;
-  animation:displayKen 12s ease-in-out infinite alternate;
 }
 .display-bg img.active{opacity:1}
 @keyframes displayKen{0%{transform:scale(1)}100%{transform:scale(1.05)}}
@@ -281,20 +280,20 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.2}
 
 /* Display mode — memory overlay */
 .display-memory{
-  position:absolute;z-index:2;
-  bottom:2rem;left:50%;transform:translateX(-50%) translateY(30px);
-  max-width:55%;width:55%;
-  padding:1.5rem 2rem;
-  background:rgba(13,10,7,.7);
+  position:absolute;z-index:3;
+  bottom:9rem;right:2rem;
+  max-width:400px;width:35%;
+  padding:1.2rem 1.5rem;
+  background:rgba(13,10,7,.75);
   border-left:3px solid transparent;
   border-image:linear-gradient(180deg,var(--gold),rgba(201,168,76,.2)) 1;
   border-radius:8px;
   backdrop-filter:blur(12px);
-  opacity:0;
+  opacity:0;transform:translateY(20px);
   transition:opacity 1.8s ease-out,transform 1.8s ease-out;
   text-align:left;
 }
-.display-memory.active{opacity:1;transform:translateX(-50%) translateY(0)}
+.display-memory.active{opacity:1;transform:translateY(0)}
 @keyframes memGlow{
   0%,100%{box-shadow:0 0 15px rgba(201,168,76,.05),inset 0 0 15px rgba(201,168,76,.02)}
   50%{box-shadow:0 0 25px rgba(201,168,76,.12),inset 0 0 20px rgba(201,168,76,.04)}
@@ -391,13 +390,10 @@ html.display-mode .display-exit{display:flex !important;align-items:center;justi
   .display-info h1{font-size:clamp(2rem,8vw,3rem)}
   .display-info .nick{font-size:clamp(1rem,3vw,1.3rem)}
   .display-info .dates{font-size:.7rem}
-  .display-memory{bottom:auto;top:auto;left:1.5rem;right:1.5rem;
-    transform:none;max-width:none;width:auto;
-    position:absolute;bottom:8rem;
-    padding:1.2rem 1.5rem}
-  .display-memory.active{transform:none}
-  .display-memory .mem-text{font-size:.9rem;line-height:1.6}
-  .display-memory .mem-author{font-size:.65rem}
+  .display-memory{right:1rem;left:auto;bottom:7rem;max-width:260px;width:60%;padding:1rem 1.2rem}
+  .display-memory.active{transform:translateY(0)}
+  .display-memory .mem-text{font-size:.82rem;line-height:1.5}
+  .display-memory .mem-author{font-size:.6rem}
   .display-qr{padding:.5rem .5rem .3rem}
   .display-qr img{width:80px;height:80px}
   .display-qr .qr-label{font-size:.5rem}
@@ -414,9 +410,8 @@ html.display-mode .display-exit{display:flex !important;align-items:center;justi
   .display-info .dates{font-size:.6rem;letter-spacing:.2em}
   .display-top{padding:.8rem 1rem}
   .display-quote{font-size:.8rem}
-  .display-memory{bottom:6rem;left:1rem;right:1rem;padding:1rem 1.2rem}
-  .display-memory .mem-text{font-size:.82rem}
-  .display-bg img{object-fit:cover}
+  .display-memory{bottom:5.5rem;right:.8rem;left:auto;max-width:220px;width:55%;padding:.8rem 1rem}
+  .display-memory .mem-text{font-size:.78rem}
 }
 </style>
 </head>
