@@ -388,17 +388,16 @@ html.display-mode .display-exit{display:flex !important;align-items:center;justi
   .display-bottom{padding:1.5rem;flex-direction:column;align-items:flex-start;text-align:left;gap:1rem}
   .display-top{padding:1rem 1.5rem}
   .display-quote{font-size:clamp(.85rem,3vw,1.1rem);line-height:1.5}
-  .display-info h1{font-size:clamp(2rem,8vw,3rem)}
-  .display-info .nick{font-size:clamp(1rem,3vw,1.3rem)}
-  .display-info .dates{font-size:.7rem}
-  .display-memory{right:1rem;left:auto;bottom:7rem;max-width:260px;width:60%;padding:1rem 1.2rem}
-  .display-memory.active{transform:translateY(0)}
+  .display-info h1,.display-info .nick,.display-info .dates{display:none}
+  .display-memory{left:1rem;right:auto;bottom:1rem;max-width:55%;width:55%;padding:1rem 1.2rem;transform:none}
+  .display-memory.active{transform:none}
   .display-memory .mem-text{font-size:.82rem;line-height:1.5}
   .display-memory .mem-author{font-size:.6rem}
   .display-qr{padding:.5rem .5rem .3rem}
   .display-qr img{width:80px;height:80px}
   .display-qr .qr-label{font-size:.5rem}
   .display-bottom .display-qr{position:fixed;bottom:1rem;right:1rem}
+  .display-bg img{object-fit:contain !important}
   .display-exit{top:1rem !important;right:1rem !important;width:40px;height:40px}
 }
 @media(max-width:480px){
@@ -406,13 +405,11 @@ html.display-mode .display-exit{display:flex !important;align-items:center;justi
   .masonry-item{margin-bottom:.5rem}
   .filmstrip-img{height:100px}
   .display-bottom{padding:1rem}
-  .display-info h1{font-size:clamp(1.8rem,10vw,2.5rem)}
-  .display-info .nick{font-size:1rem;margin-bottom:.4rem}
-  .display-info .dates{font-size:.6rem;letter-spacing:.2em}
   .display-top{padding:.8rem 1rem}
   .display-quote{font-size:.8rem}
-  .display-memory{bottom:5.5rem;right:.8rem;left:auto;max-width:220px;width:55%;padding:.8rem 1rem}
+  .display-memory{left:.8rem;right:auto;bottom:.8rem;max-width:60%;width:60%;padding:.8rem 1rem}
   .display-memory .mem-text{font-size:.78rem}
+  .display-bg img{object-fit:contain !important}
 }
 </style>
 </head>
